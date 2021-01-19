@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
 import GlobalStateContext from '../Global/GlobalStateContext'
-import Loading from './Loading'
+
 
 const MainDiv = styled.div `
     height: 13%;
@@ -93,9 +93,9 @@ if (!compare[0]) {
             <div className={'desktop'}>
             <Button onClick={goToComparePage}>Comparar</Button>
             <p>{compare[0].data.name}</p>
-            <img src={compare[0].data.sprites.front_default}></img>
+            <img alt={compare[0].data.name}src={compare[0].data.sprites.front_default}></img>
             <p>VS</p>
-            <img src={compare[1] ? compare[1].data.sprites.front_default : null }></img>
+            <img alt={compare[1] ? compare[1].data.name : null} src={compare[1] ? compare[1].data.sprites.front_default : null }></img>
             <p>{compare[1] ? compare[1].data.name : "Selecione outro pokemon" }</p>
             <Button onClick={removePokemons}> Limpar</Button>
             </div>
@@ -108,11 +108,11 @@ if (!compare[0]) {
                 </div>
                 <div >
                     <p>{compare[0].data.name}</p>
-                    <img src={compare[0].data.sprites.front_default}></img>
+                    <img alt={compare[0].data.name} src={compare[0].data.sprites.front_default}></img>
                 </div>
                 <div >
                     <p >{compare[1] ? compare[1].data.name : "Selecione outro pokemon" }</p>
-                    <img src={compare[1] ? compare[1].data.sprites.front_default : null }></img>
+                    <img alt={compare[1] ? compare[1].data.name: 'null'} src={compare[1] ? compare[1].data.sprites.front_default : null }></img>
                 </div>
             </div>
         </MainDiv>

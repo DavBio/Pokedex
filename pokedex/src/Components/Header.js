@@ -45,6 +45,9 @@ const Button = styled.button `
     padding: 0.8em;
     box-shadow: inset 2px 2px black, 2px 2px black;
     font-size: x-small;
+    :hover {
+            background-color: white;
+        }
 
     @media only screen 
   and (min-device-width: 320px) 
@@ -65,7 +68,7 @@ export default function Header(props) {
         } else { history.push(props.path) }
     }
  
-    const {list, setList, pokedex, setPokedex, offset, setOffset} = useContext(GlobalStateContext)
+    const {list, setList, pokedex, setPokedex} = useContext(GlobalStateContext)
     
     if (!list[0] && !pokedex[0]) {
         return <HeaderMain>

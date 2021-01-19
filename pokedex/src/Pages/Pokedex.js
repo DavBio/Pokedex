@@ -14,7 +14,7 @@ const Content = styled.div `
 `
 
 export default function Pokedex() {
-    const {list, setList, pokedex, setPokedex} = useContext(GlobalStateContext)
+    const {pokedex} = useContext(GlobalStateContext)
 
     if (pokedex === undefined) {
         return <Loading/>
