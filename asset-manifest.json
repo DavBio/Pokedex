@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8f4b1eed.chunk.css",
+    "main.js": "/static/js/main.d1d3cfc5.chunk.js",
+    "main.js.map": "/static/js/main.d1d3cfc5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c0d145f2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c0d145f2.js.map",
+    "static/js/2.76eda981.chunk.js": "/static/js/2.76eda981.chunk.js",
+    "static/js/2.76eda981.chunk.js.map": "/static/js/2.76eda981.chunk.js.map",
+    "static/js/3.95d0ee7c.chunk.js": "/static/js/3.95d0ee7c.chunk.js",
+    "static/js/3.95d0ee7c.chunk.js.map": "/static/js/3.95d0ee7c.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.8f4b1eed.chunk.css.map": "/static/css/main.8f4b1eed.chunk.css.map",
+    "static/js/2.76eda981.chunk.js.LICENSE.txt": "/static/js/2.76eda981.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/PokemonLogoHollow.47f77ce9.ttf",
+    "static/media/arrowLeft.467bb1fd.svg": "/static/media/arrowLeft.467bb1fd.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c0d145f2.js",
+    "static/js/2.76eda981.chunk.js",
+    "static/css/main.8f4b1eed.chunk.css",
+    "static/js/main.d1d3cfc5.chunk.js"
+  ]
+}
