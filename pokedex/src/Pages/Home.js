@@ -3,7 +3,6 @@ import Header from '../Components/Header'
 import Card from '../Components/Card'
 import GlobalStateContext from '../Global/GlobalStateContext'
 import styled from 'styled-components'
-import Pokedex from './Pokedex'
 import arrowLeft from '../img/arrowLeft.svg'
 import Loading from "../Components/Loading"
 import CompareComponent from '../Components/CompareComponent'
@@ -33,7 +32,7 @@ const Icon = styled.img `
 export default function Home() {
 
         
-    const {list, setList, pokedex, setPokedex,offset, setOffset, pokemonsTotal, setPokemonsTotal} = useContext(GlobalStateContext)
+    const {list, pokedex,offset, setOffset, pokemonsTotal, setPokemonsTotal} = useContext(GlobalStateContext)
 
     const sortedArray = list.sort((a, b) => { return a.data.id - b.data.id})
 

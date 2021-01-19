@@ -5,6 +5,7 @@ import {useParams} from 'react-router-dom'
 import GlobalStateContext from '../Global/GlobalStateContext'
 import Loading from "../Components/Loading"
 import CompareComponent from '../Components/CompareComponent'
+import useRequestData from "../CustomHooks/useRequestData"
 
 const MainDiv = styled.div `
     margin-bottom: 200px;
@@ -220,8 +221,8 @@ const MoveDiv = styled.div`
 
 export default function Info() {
     const params = useParams();
-    const { list, setList, pokedex, setPokedex} = useContext(GlobalStateContext)
-
+    const { list, pokedex} = useContext(GlobalStateContext)
+    const pokemonData = useRequestData(`https://pokeapi.co/api/v2/pokemon/${params.pokemonId}`,{})
 
     const listData = list.filter(e => {
       return e.data.name === params.pokemonId
@@ -229,6 +230,7 @@ export default function Info() {
 
     let pokedexData = []
     if ( pokedex !== []) {
+      console.log(pokedex)
       pokedexData = pokedex.filter(e => {
         return e.data.name === params.pokemonId
       })
@@ -236,12 +238,17 @@ export default function Info() {
   
     let pokemon = {}
     
-    if(!listData[0] && !pokedexData[0]) {
+    if (!pokemonData.data) {
       return <Loading/>
+    }
+
+    if(!listData[0] && !pokedexData[0]) {
+      pokemon = pokemonData.data ? pokemonData : "null"
+      console.log(pokemonData)
     } else if (!listData[0]) {
-      pokemon = pokedexData[0].data
+      pokemon = pokedexData[0]
     } else if (!pokedexData[0]) {
-      pokemon = listData[0].data
+      pokemon = listData[0]
     
     }
 
@@ -252,32 +259,32 @@ export default function Info() {
             path={'goBack'} 
             routeButton={'Voltar'} 
             type={'info'}
-            pokemon={!listData[0] ? pokedexData[0] : listData[0]}
-            id={pokemon.id}
+            pokemon={pokemon}
+            id={pokemon.data.id}
             name={params.pokemonId.toUpperCase()}
             buttonText={!listData[0]? "Remover da Pokedex" : "Adicionar à Pokedex"}
             ></Header>
             <Content>
                 <ImageSection>
-                    <ImageDiv><div></div><img src={pokemon.sprites.front_default}/></ImageDiv>
-                    <ImageDiv><div></div><img src={pokemon.sprites.back_default}/></ImageDiv>
+                    <ImageDiv><div></div><img alt={`${params.pokemonId} front`} src={pokemon.data.sprites.front_default}/></ImageDiv>
+                    <ImageDiv><div></div><img alt={`${params.pokemonId} back`} src={pokemon.data.sprites.back_default}/></ImageDiv>
                 </ImageSection>
                 <Stats>
                     <h2>Stats</h2>
-                    { pokemon.stats.map(e => {
+                    { pokemon.data.stats.map(e => {
                         return <p key={e.stat.name}>{e.stat.name}: {e.base_stat}</p>
                     })}
                 </Stats>
                 <TypeMoveSection>
                     <TypesDiv>
                       <h2>Type</h2>
-                        {pokemon.types.map((e,index) => {
+                        {pokemon.data.types.map((e,index) => {
                             return <Type key={index} className={e.type.name}><p>{e.type.name}</p></Type>
                         })}
                     </TypesDiv>
                     <MoveDiv>
                         <h2>Moves</h2>
-                        {pokemon.moves.map((e,index) => {
+                        {pokemon.data.moves.map((e,index) => {
                             return index < 3 ? <p key={index}>{e.move.name}</p> : null  
                         })}
                     </MoveDiv> 

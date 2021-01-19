@@ -1,6 +1,5 @@
 import React, {useContext} from 'react'
 import styled from 'styled-components'
-import {useHistory} from 'react-router-dom'
 import GlobalStateContext from '../Global/GlobalStateContext'
 import Loading from '../Components/Loading'
 import Header from "../Components/Header"
@@ -119,7 +118,7 @@ export default function ComparePage() {
 
     
 
-    const {compare, setCompare} = useContext(GlobalStateContext)
+    const {compare} = useContext(GlobalStateContext)
 
     const total1 = compare[0].data.stats.reduce((total,e)=> {
         return total + e.base_stat;
@@ -151,7 +150,7 @@ export default function ComparePage() {
             <div className={'pokemon'}>
                 <div className={"imgDiv"}>
                     <h2>{compare[0].data.name}</h2>
-                    <img src={compare[0].data.sprites.front_default}></img>
+                    <img alt={compare[0].data.name} src={compare[0].data.sprites.front_default}></img>
                 </div>
                 
                 <Stats>
@@ -172,7 +171,7 @@ export default function ComparePage() {
             <div className={'pokemon'}>
                 <div className={"imgDiv"}>
                     <h2>{compare[1] ? compare[1].data.name : "Selecione outro pokemon" }</h2>
-                    <img src={compare[1] ? compare[1].data.sprites.front_default : null }></img>
+                    <img  alt={compare[1].data.name} src={compare[1] ? compare[1].data.sprites.front_default : null }></img>
                 </div>
                 
                 <Stats>
@@ -189,8 +188,12 @@ export default function ComparePage() {
     <h2>{result.data ? result.data.name : "empate"  }</h2>
     <ImageDiv>   
         <div></div>
-        <img src={result.data ? result.data.sprites.front_default : null }></img>
-        </ImageDiv>
+        <img alt={result.data ? result.data.name : compare[0].data.name} src={result.data ? result.data.sprites.front_default : compare[0].data.sprites.front_default }></img>
+    </ImageDiv>
+    {!result.data ? <ImageDiv>   
+        <div></div>
+        <img alt={compare[1].data.name} src={compare[1].data.sprites.front_default}></img>
+    </ImageDiv>: null}
     </ResultDiv>
     </Content>
         </div>

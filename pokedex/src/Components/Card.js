@@ -90,7 +90,7 @@ import GlobalStateContext from '../Global/GlobalStateContext'
     `
 export default function Card(props) {
 
-    const {list, setList, pokedex, setPokedex, offset, setOffset, compare, setCompare} = useContext(GlobalStateContext)
+    const {list, setList, pokedex, setPokedex, compare, setCompare} = useContext(GlobalStateContext)
 
     const history = useHistory()
     const onClickInfo = () => {
