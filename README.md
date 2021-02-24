@@ -1,4 +1,4 @@
-<h1>Pokédex</h1> 
+<h1>Pokédex :zap: </h1> 
 
 ![image](https://user-images.githubusercontent.com/63478613/109051961-dd5fc300-76b9-11eb-8c30-77c91126e8da.png)
 
@@ -11,7 +11,7 @@
 > Status do Projeto: :heavy_check_mark: Concluído
 ... 
 
-## O Projeto :zap:
+## O Projeto :computer:
 
 <p align="justify">
   A famosa Pokédex.
@@ -27,7 +27,7 @@
 
  App desenvolvido durante o curso de Desenvolvimento Web Front-End com React da Labenu.
 
-## Deploy
+## Deploy :rocket:
 
 Acesse o site:
 
@@ -48,4 +48,4 @@ Acesse o site:
 
 The [MIT License]() (MIT)
 
-Copyright :copyright: 2021 - Pokedéx
+Copyright :copyright: 2021 David Biolchini de Mello
